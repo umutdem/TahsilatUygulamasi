@@ -1,55 +1,51 @@
-
 package tr.gov.ptt.tahsilatuygulamasi.bean;
 
+import java.util.List;
+import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.SessionScoped;
-import javax.servlet.http.HttpSession;
 import org.primefaces.model.menu.DefaultMenuItem;
 import org.primefaces.model.menu.DefaultMenuModel;
 import org.primefaces.model.menu.DefaultSubMenu;
 
 import org.primefaces.model.menu.MenuModel;
-import tr.gov.ptt.tahsilatuygulamasi.util.JSFUtil;
-
-
+import tr.gov.ptt.tahsilatuygulamasi.entity.TahsilatMenu;
 
 @ManagedBean
 @SessionScoped
 public class MenuBean {
-    
+
     private MenuModel simpleMenuModel = new DefaultMenuModel();
-   
-    public MenuBean() {
-        
+    @ManagedProperty(value="#{tahsilatKisiBean}")
+    private TahsilatKisiBean kisiBean;
+
+    public void setKisiBean(TahsilatKisiBean kisiBean) {
+        this.kisiBean = kisiBean;
+    }
+    @PostConstruct
+    public void init()
+    {
+        List<TahsilatMenu> menuList = kisiBean.getKisi().getTahsilatMenuList();
+
         DefaultSubMenu subMenu = new DefaultSubMenu();
         subMenu.setLabel("Kullanıcı İşlemleri");
-        
-        DefaultMenuItem menuItem = new DefaultMenuItem();
-        menuItem.setValue("Tahsilat Giriş");
-        menuItem.setUrl("giris.xhtml");
-        subMenu.addElement(menuItem);
-        //simpleMenuModel.addElement(menuItem);
-       
-        menuItem = new DefaultMenuItem();
-        menuItem.setValue("Raporlar");
-        menuItem.setUrl("raporlar.xhtml");
-        subMenu.addElement(menuItem);
-        
-        simpleMenuModel.addElement(subMenu);
-        
-        subMenu = new DefaultSubMenu();
-        subMenu.setLabel("Yönetim İşlemleri");
-        
-        menuItem = new DefaultMenuItem();
-        menuItem.setValue("Tahsilat İptal");
-        menuItem.setUrl("tahsilatIptal.xhtml");
-        subMenu.addElement(menuItem);
-        
-        simpleMenuModel.addElement(subMenu);       
+        DefaultMenuItem menuItem = null;
+
+        for (TahsilatMenu menuList1 : menuList) {
+            menuItem = new DefaultMenuItem();
+            menuItem.setValue(menuList1.getBaslik());
+            menuItem.setUrl(menuList1.getLink() + ".xhtml");
+            subMenu.addElement(menuItem);
+        }        
+        simpleMenuModel.addElement(subMenu);        
     }
-    
+
+    public MenuBean() {        
+    }
+
     public MenuModel getSimpleMenuModel() {
         return simpleMenuModel;
     }
-    
+
 }
