@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package tr.gov.ptt.tahsilatuygulamasi;
+package tr.gov.ptt.tahsilatuygulamasi.entity;
 
 import java.io.Serializable;
 import java.math.BigDecimal;

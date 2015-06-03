@@ -8,7 +8,7 @@ package tr.gov.ptt.tahsilatuygulamasi.facade;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import tr.gov.ptt.tahsilatuygulamasi.TahsilatMenu;
+import tr.gov.ptt.tahsilatuygulamasi.entity.TahsilatMenu;
 
 /**
  *

@@ -5,10 +5,11 @@
  */
 package tr.gov.ptt.tahsilatuygulamasi.facade;
 
+import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import tr.gov.ptt.tahsilatuygulamasi.TahsilatKisi;
+import tr.gov.ptt.tahsilatuygulamasi.entity.TahsilatKisi;
 
 /**
  *
@@ -26,6 +27,12 @@ public class TahsilatKisiFacade extends AbstractFacade<TahsilatKisi> {
 
     public TahsilatKisiFacade() {
         super(TahsilatKisi.class);
+    }
+    
+    public TahsilatKisi kisininMenuleriniGetir(TahsilatKisi p_kisi)
+    {
+        TahsilatKisi kisi = (TahsilatKisi)em.createNamedQuery("TahsilatKisi.giriseYetkilimi").setParameter("kullaniciAd", p_kisi.getKullaniciAd()).setParameter("sifre", p_kisi.getSifre()).getSingleResult();
+        return kisi;
     }
     
 }
