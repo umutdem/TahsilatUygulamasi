@@ -35,7 +35,7 @@ public class MenuBean {
         for (TahsilatMenu menuList1 : menuList) {
             menuItem = new DefaultMenuItem();
             menuItem.setValue(menuList1.getBaslik());
-            menuItem.setUrl(menuList1.getLink() + ".xhtml");
+            menuItem.setCommand(menuList1.getLink());
             subMenu.addElement(menuItem);
         }        
         simpleMenuModel.addElement(subMenu);        

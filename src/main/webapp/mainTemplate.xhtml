@@ -36,9 +36,11 @@
 
             <p:layoutUnit position="west" size="200" header="Left" resizable="true" closable="true" collapsible="true">
                 <ui:insert name="left">
-                    <p:menu model="#{menuBean.simpleMenuModel}">
+                    <h:form>
+                        <p:menu model="#{menuBean.simpleMenuModel}">
                         
-                    </p:menu>
+                        </p:menu>
+                    </h:form>                    
                 </ui:insert>
             </p:layoutUnit>            
 

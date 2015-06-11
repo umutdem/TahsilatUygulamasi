@@ -5,12 +5,14 @@
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:p="http://primefaces.org/ui"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
-
+    <h:head>
+        
+    </h:head>
     <body>        
                 <h:form id="girisForm">
-                    <p:panel header="Giriş Sayfası">
+                    <p:panel header="Giriş Sayfası" style="width: 500px;margin: 0px auto;margin-top: 100px;text-align: center    ">
                         <p:messages/>
-                        <p:panelGrid columns="3">
+                        <p:panelGrid columns="3" style="margin: 0px auto">
                             <p:outputLabel value="Kullanıcı Adı: "/>
                             <p:inputText id ="ad" label ="kullaniciadi" value="#{tahsilatKisiBean.kisi.kullaniciAd}" required="true" >
                                 <p:ajax event="blur" update="adMsg"/>

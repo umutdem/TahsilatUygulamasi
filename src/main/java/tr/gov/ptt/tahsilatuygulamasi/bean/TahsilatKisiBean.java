@@ -43,5 +43,11 @@ public class TahsilatKisiBean {
         return "giris.xhtml?faces-redirect=true";
     }
     
+    public String guvenliCikis()
+    {
+        System.out.println("Session Bitiyor..." + JSFUtil.getSession().getId());
+        JSFUtil.getSession().invalidate();        
+        return "giris.xhtml?faces-redirect=true";
+    }
     
 }
