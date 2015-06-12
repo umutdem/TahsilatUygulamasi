@@ -4,7 +4,8 @@
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:p="http://primefaces.org/ui"
-      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
 
     <h:head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
@@ -40,6 +41,16 @@
                         <p:menu model="#{menuBean.simpleMenuModel}">
                         
                         </p:menu>
+                        <br/>
+                        <p:themeSwitcher value="#{tahsilatKisiBean.kisi.tema}" style="width: 165px">
+                            <f:selectItem itemLabel="Lütfen Tema Seçiniz" itemValue=""></f:selectItem>
+                            <f:selectItems value="#{tahsilatKisiBean.temaListesi}">
+                                
+                            </f:selectItems>
+                            <p:ajax listener="#{tahsilatKisiBean.temaKaydet}">
+                                
+                            </p:ajax>
+                        </p:themeSwitcher>
                     </h:form>                    
                 </ui:insert>
             </p:layoutUnit>            

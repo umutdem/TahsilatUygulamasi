@@ -15,6 +15,11 @@ public class TahsilatKisiService {
     {
         return tahsilatKisiFacade.kisininMenuleriniGetir(p_tahKisi);
     }
+    
+    public void kisiGuncelle(TahsilatKisi kisi)
+    {
+        tahsilatKisiFacade.edit(kisi);
+    }
 }
 
 

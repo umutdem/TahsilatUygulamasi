@@ -1,0 +1,62 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+
+    <body>
+
+        <ui:composition template="./mainTemplate.xhtml">
+
+            <ui:define name="content">
+                <h:form id="tahsilatGirisForm">
+                    <p:growl showDetail="true"/>
+                    <p:panel header="Sorgulama Ekranı">
+                        <p:panelGrid columns="3">
+                            <p:column>
+                                <p:outputLabel value="Kurum Adı:"/>
+                            </p:column>
+                            
+                            <p:column>
+                                <p:autoComplete id="kurumAdi" value="#{tahsilatBorcBean.borc.kurum.ad}" completeMethod="#{tahsilatBorcBean.kurumAdiTamamla}" required="true"/>
+                            </p:column>
+                            
+                            <p:column>
+                                <p:message id="kurumAdiMsg" for="kurumAdi"/>
+                            </p:column>
+                            
+                            <p:column>
+                                <p:outputLabel value="Abone No:"/>
+                            </p:column>
+                            
+                            <p:column>
+                                <p:inputText id="aboneNo" value="#{tahsilatBorcBean.borc.aboneNo}" required="true"/>
+                            </p:column>
+                            
+                            <p:column>
+                                <p:message id="aboneNoMsg" for="aboneNo"/>
+                            </p:column>                              
+                            
+                            <p:column>
+                                <p:outputLabel />
+                            </p:column>
+                            
+                            <p:column>
+                                <p:commandButton value="Sorgula" update="@form" action="#{tahsilatBorcBean.sorgula}" />
+                            </p:column>
+                            
+                            <p:column>
+                                <p:outputLabel />
+                            </p:column>
+                            
+                        </p:panelGrid>
+                        
+                    </p:panel>
+                </h:form>
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>
